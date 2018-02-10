@@ -3,20 +3,20 @@
   "engine": {
     "Ethash": {
       "params": {
-        "gasLimitBoundDivisor": "0x0400",
         "minimumDifficulty": "0x020000",
         "difficultyBoundDivisor": "0x0800",
         "durationLimit": "0x0a",
         "blockReward": "0x4563918244F40000",
-        "registrar": "",
         "homesteadTransition": "0x0"
       }
     }
   },
   "params": {
     "accountStartNonce": "0x0100000",
+    "gasLimitBoundDivisor": "0x0400",
     "maximumExtraDataSize": "0x20",
     "minGasLimit": "0x1388",
+    "registrar": "",
     "networkID" : "0x12342"
   },
   "genesis": {
