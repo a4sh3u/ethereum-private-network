@@ -1,11 +1,11 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN \
-  apk add --update git go make gcc musl-dev && \
-  git clone https://github.com/ethereum/go-ethereum && \
-  (cd go-ethereum && build/env.sh go run build/ci.go install ./cmd/bootnode) && \
-  cp go-ethereum/build/bin/bootnode /usr/bin/bootnode && \
-  apk del git go make gcc musl-dev && \
-  rm -rf /go-ethereum && rm -rf /var/cache/apk/*
+RUN apt update -y && \
+    apt install software-properties-common && \
+    add-apt-repository -y ppa:ethereum/ethereum && \
+    apt update -y && \
+    apt install bootnode -y && \
+    apt remove --purge software-properties-common -y && \
+    apt autoremove -y
 
 ENTRYPOINT ["/usr/bin/bootnode"]
