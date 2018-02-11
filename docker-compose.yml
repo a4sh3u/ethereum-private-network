@@ -1,0 +1,13 @@
+version: '2'
+services:
+  bootnode:
+    build: ./bootnode
+    container_name: bootnode
+    restart: always
+    network_mode: "bridge"
+    volumes:
+      - ./bootnode/boot.key:/root/boot.key
+    command: " --nodekey /root/boot.key --addr :30301"
+    ports:
+      - "30301:30301"
+      - "30301:30301/udp"
