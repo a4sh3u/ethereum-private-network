@@ -7,3 +7,11 @@ base_path = "/parity/config"
 [network]
 # Network ID of the chain will be overridden to: 12342
 id = 12342
+# Fill up the config manually and provide your public IP address.
+nat = "extip:"
+# Enable or disable new peers discovery.
+discovery = false
+
+[rpc]
+# Allows Cross-Origin Requests from domain '*'.
+cors = "*"

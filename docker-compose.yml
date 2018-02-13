@@ -3,7 +3,6 @@ services:
   bootnode:
     build: ./bootnode
     container_name: bootnode
-    restart: always
     network_mode: "bridge"
     volumes:
       - ./bootnode/boot.key:/root/boot.key
@@ -11,3 +10,24 @@ services:
     ports:
       - "30301:30301"
       - "30301:30301/udp"
+
+  parity_genesis:
+    image: parity/parity:stable
+    container_name: parity_genesis
+    network_mode: "bridge"
+    volumes:
+      - /root/ethereum-private-network:/parity/config
+    command: " --config=/parity/config/config.toml"
+    ports:
+      - "8545:8545"
+      - "8080:8080"
+
+  parity_client:
+    image: parity/parity:stable
+    container_name: parity_client
+    network_mode: "bridge"
+    volumes:
+      - /root/ethereum-private-network/client:/parity/config
+    command: " --config=/parity/config/config.toml"
+    ports:
+      - "8546:8545"
