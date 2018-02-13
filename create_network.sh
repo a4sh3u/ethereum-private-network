@@ -19,7 +19,9 @@ if [ "$user" != 'root' ]; then
   fi
 fi
 
-
-
-docker run -v /root/ethereum-private-network:/parity/config parity/parity:stable --config=/parity/config/config.toml
-docker run -v /root/ethereum-private-network/client:/parity/config parity/parity:stable --config=/parity/config/config.toml
+myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+docker-compose up -d bootnode
+enode_hash="$(cat $(docker inspect bootnode | grep json.log | awk -F '"' '{print $4}') | grep enode | awk -F // '{print $2}' | awk -F @ '{print $1}')"
+sed -i "s|enode.*|enode://$enode_hash@$myip:30301|" chain-spec.json
+sed -i "s|enode.*|enode://$enode_hash@$myip:30301|" client/chain-spec.json
+docker-compose up -d parity_genesis parity_client

@@ -6,7 +6,7 @@ services:
     network_mode: "bridge"
     volumes:
       - ./bootnode/boot.key:/root/boot.key
-    command: " --nodekey /root/boot.key --addr :30301"        # use NAT IP in main config    --nat extip:$MY_IP
+    command: " --nodekey /root/boot.key --addr :30301 --nat extip:$myip"
     ports:
       - "30301:30301"
       - "30301:30301/udp"
