@@ -19,9 +19,9 @@ if [ "$user" != 'root' ]; then
   fi
 fi
 
-myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
+export myip="$(dig +short myip.opendns.com @resolver1.opendns.com)"
 docker-compose up -d bootnode
-enode_hash="$(cat $(docker inspect bootnode | grep json.log | awk -F '"' '{print $4}') | grep enode | awk -F // '{print $2}' | awk -F @ '{print $1}')"
-sed -i "s|enode.*|enode://$enode_hash@$myip:30301|" chain-spec.json
-sed -i "s|enode.*|enode://$enode_hash@$myip:30301|" client/chain-spec.json
+export enode_hash="$(cat $(docker inspect bootnode | grep json.log | awk -F '"' '{print $4}') | grep enode | awk -F // '{print $2}' | awk -F @ '{print $1}')"
+sed -i "s|enode.*|enode://$enode_hash@$myip:30301\"|" chain-spec.json
+sed -i "s|enode.*|enode://$enode_hash@$myip:30301\"|" client/chain-spec.json
 docker-compose up -d parity_genesis parity_client
