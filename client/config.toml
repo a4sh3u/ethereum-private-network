@@ -8,7 +8,7 @@ base_path = "/parity/config"
 # Network ID of the chain will be overridden to: 12342
 id = 12342
 # Fill up the config manually and provide your public IP address.
-nat = "extip:"
+nat = "extip:80.153.143.113"
 # Enable or disable new peers discovery.
 discovery = false
 
