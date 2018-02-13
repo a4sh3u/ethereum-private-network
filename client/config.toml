@@ -1,0 +1,9 @@
+[parity]
+# Local Development Chain
+chain = "/parity/config/chain-spec.json"
+# Blockchain and settings will be stored in /parity/config.
+base_path = "/parity/config"
+
+[network]
+# Network ID of the chain will be overridden to: 12342
+id = 12342

@@ -21,4 +21,5 @@ fi
 
 
 
-docker run --name parity -v .:/parity/config parity/parity:stable --config=/parity/config/config.toml
+docker run -v /root/ethereum-private-network:/parity/config parity/parity:stable --config=/parity/config/config.toml
+docker run -v /root/ethereum-private-network/client:/parity/config parity/parity:stable --config=/parity/config/config.toml
