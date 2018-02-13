@@ -4,6 +4,8 @@ services:
     build: ./bootnode
     container_name: bootnode
     network_mode: "bridge"
+    environment:
+      - myip=$myip
     volumes:
       - ./bootnode/boot.key:/root/boot.key
     command: " --nodekey /root/boot.key --addr :30301 --nat extip:$myip"
