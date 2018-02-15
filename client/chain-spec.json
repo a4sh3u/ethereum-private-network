@@ -34,7 +34,7 @@
 		"gasLimit": "0x2fefd8"
   },
   "nodes": [
-		"enode://8b363f57d08a31b06e248171da1a9f54dc60c961e036be6cb41234b11d926be5d1e9d0e0305df085d23a20a8a6156e87c8da989a9893c86bd132c19d79292560@80.153.143.113:30301"
+		"enode://8b363f57d08a31b06e248171da1a9f54dc60c961e036be6cb41234b11d926be5d1e9d0e0305df085d23a20a8a6156e87c8da989a9893c86bd132c19d79292560@172.17.0.2:30301"
 	],
  "accounts": {
     "0x0000000000000000000000000000000000000001": { "balance": "1", "builtin": { "name":   "ecrecover", "pricing": { "linear": { "base": 3000, "word": 0 } } } },
